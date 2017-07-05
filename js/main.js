@@ -27,7 +27,7 @@ Scope
 })();
 /*************************************************************************************
 ------------ ANSWER -------------------
-//x and y are local var//y would be an error and x would be "I'm a local variable"//
+//x is local to the ifee and y is not a global var//y would be an error and x would be "I'm a local variable" because y is local to the scope this function and x is local to the greater function//
 **************************************************************************************/
 
 
@@ -58,7 +58,7 @@ Hoisting
 })();
 /*************************************************************************************
 ------------ ANSWER -------------------
-"variable hosting!" and "function hoisting"
+they would both be undefined
 **************************************************************************************/
 
 
@@ -98,7 +98,7 @@ Warm up
 //console.log(add);
 /**************************************************************************************
 ------------ ANSWER -------------------
-5 and an error
+5 and undefined
 **************************************************************************************/
 
 
@@ -138,7 +138,8 @@ Date object
 **************************************************************************************/
 (function(testerTwo){
   "use strict";
-  var today = new Date("June 12, 2017");
+  var stringDate = "June 12, 2017"
+  var today = new Date(stringDate);
   console.log("#6 stringDate", stringDate)
   console.assert(stringDate == testerTwo, "#6 Test Failed. Did you set stringDate correctly?")
 })(testerTwo);
@@ -286,10 +287,10 @@ Compartmentalization
 **************************************************************************************/
 (function() {
   "use strict";
-  var multiply;
 
   function duplicate() {
-    multiply = 2 * 8;
+    var multiply = 2 * 8;
+    return multiply;
   };
 
   duplicate();
